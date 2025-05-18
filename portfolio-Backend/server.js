@@ -3,12 +3,14 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 
+
 // Initialize Express app
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+
 
 // Connect to MongoDB
 connectDB();
@@ -20,6 +22,7 @@ const skillRoutes = require('./routes/skillRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const educationRoutes = require('./routes/educationRoutes');
 
+
 // Use routes
 app.use('/api/profile', profileRoutes);
 app.use('/api/home', homeRoutes);
@@ -27,10 +30,12 @@ app.use('/api/skills', skillRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/education', educationRoutes);
 
+
 // Basic route for testing
 app.get('/', (req, res) => {
   res.send('Portfolio Backend API');
 });
+
 
 // Start server
 const PORT = process.env.PORT || 5000;
