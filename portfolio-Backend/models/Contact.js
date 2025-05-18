@@ -5,15 +5,19 @@ const ContactSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  
   phone: {
     type: String
   },
+  
   address: {
     type: String
   },
+  
   location: {
     type: String // e.g., "New York, USA"
   },
+  
   contactFormSubmissions: [{
     name: String,
     email: String,
