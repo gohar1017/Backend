@@ -3,6 +3,7 @@ const Contact = require('../models/Contact');
 // @desc    Get contact information
 // @route   GET /api/contact
 // @access  Public
+
 exports.getContactInfo = async (req, res) => {
   try {
     const contactInfo = await Contact.findOne();
@@ -14,6 +15,7 @@ exports.getContactInfo = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 // @desc    Update contact information
 // @route   PUT /api/contact
@@ -31,6 +33,7 @@ exports.updateContactInfo = async (req, res) => {
   }
 };
 
+
 // @desc    Submit contact form
 // @route   POST /api/contact/submit
 // @access  Public
@@ -45,6 +48,7 @@ exports.submitContactForm = async (req, res) => {
       { new: true, upsert: true }
     );
     
+    
     res.status(201).json({
       success: true,
       message: 'Contact form submitted successfully'
@@ -52,4 +56,5 @@ exports.submitContactForm = async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
+  
 };
