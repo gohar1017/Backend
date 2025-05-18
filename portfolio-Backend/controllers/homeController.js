@@ -7,7 +7,7 @@ const Project = require('../models/Project');
 exports.getHomeData = async (req, res) => {
   try {
     const homeData = await Home.findOne().populate('featuredProjects');
-    if (!homeData) {
+    if(!homeData){
       return res.status(404).json({ message: 'Home data not found' });
     }
     res.status(200).json(homeData);
@@ -26,6 +26,7 @@ exports.updateHomeData = async (req, res) => {
       upsert: true,
       runValidators: true
     });
+    
     res.status(200).json(homeData);
   } catch (error) {
     res.status(400).json({ message: error.message });
